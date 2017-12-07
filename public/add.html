@@ -1,0 +1,455 @@
+<html>
+<head>
+    <title>EasyPets</title>
+    <link rel="icon" type="image/png" href="https://easypetsthailand.firebaseapp.com/favicon.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--timepicker-->
+    <link rel="stylesheet" href="bootstrap-clockpicker.min.css">
+    <script src="bootstrap-clockpicker.min.js"></script>
+
+    <style type="text/css">
+        .input-group {
+            width: 110px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="mdl-layout mdl-js-layout">
+    <main class="mdl-layout__content">
+        <div class="page-content" style="padding-top: 60px;" align="center">
+            <!-- Your content goes here -->
+            <h4>Add New Services</h4>
+            <form>
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Service Name</td>
+                        <td>
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="title" id="service_name">
+                                <label class="mdl-textfield__label" for="service_name">Service Name...</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Service Type</td>
+                        <td>
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="service-option-1">
+                                    <input type="radio" id="service-option-1"
+                                           class="mdl-radio__button radio-service-options"
+                                           value="0" name="service-options" checked="true">
+                                    <span class="mdl-radio__label">Pet Services</span>
+                                </label>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="service-option-2">
+                                    <input type="radio" id="service-option-2"
+                                           class="mdl-radio__button radio-service-options"
+                                           value="1" name="service-options">
+                                    <span class="mdl-radio__label">Pet Hospital</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Banner Image</td>
+                        <td>
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input type="file" id="fileButton_banner"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Description</td>
+                        <td>
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <textarea class="mdl-textfield__input" type="text" rows="5" id="description"></textarea>
+                                <label class="mdl-textfield__label" for="description">Description...</label>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Telephone Number</td>
+                        <td>
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="number" id="tel_number">
+                                <label class="mdl-textfield__label" for="tel_number">Tel...</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Price Rate</td>
+                        <td>
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="price-rate-option-1">
+                                    <input type="radio" id="price-rate-option-1"
+                                           class="mdl-radio__button price-rate-options"
+                                           name="price-rate-options" value="1" checked="true">
+                                    <span class="mdl-radio__label">฿</span>
+                                </label>
+
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="price-rate-option-2">
+                                    <input type="radio" id="price-rate-option-2"
+                                           class="mdl-radio__button price-rate-options"
+                                           name="price-rate-options" value="2">
+                                    <span class="mdl-radio__label">฿฿</span>
+                                </label>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="price-rate-option-3">
+                                    <input type="radio" id="price-rate-option-3"
+                                           class="mdl-radio__button price-rate-options"
+                                           name="price-rate-options" value="3">
+                                    <span class="mdl-radio__label">฿฿฿</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Current Likes</td>
+                        <td>
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="number" id="likes">
+                                <label class="mdl-textfield__label" for="likes">Likes...</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Open Days</td>
+                        <td>
+                            <div class="mdl-textfield mdl-js-textfield" style="padding-right: 40%;">
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="checkbox-0">
+                                    <input type="checkbox" id="checkbox-0" class="mdl-switch__input"
+                                           onchange="everyDay();" checked>
+                                    <span class="mdl-switch__label">Every Day</span>
+                                </label>
+                            </div>
+                            <div id="daySelector" class="mdl-textfield mdl-js-textfield">
+                                <label>
+                                    <input type="checkbox" id="checkbox-1" name="open-days" disabled>
+                                    <span class="mdl-checkbox__label">SUN</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="checkbox-2" name="open-days" disabled>
+                                    <span class="mdl-checkbox__label">MON</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="checkbox-3" name="open-days" disabled>
+                                    <span class="mdl-checkbox__label">TUE</span>
+                                </label>
+                                <br>
+                                <label>
+                                    <input type="checkbox" id="checkbox-4" name="open-days" disabled>
+                                    <span class="mdl-checkbox__label">WED</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="checkbox-5" name="open-days" disabled>
+                                    <span class="mdl-checkbox__label">THU</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="checkbox-6" name="open-days" disabled>
+                                    <span class="mdl-checkbox__label">FRI</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="checkbox-7" name="open-days" disabled>
+                                    <span class="mdl-checkbox__label">SAT</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">Location</td>
+                        <td>
+                            <div id="map" style="height: 400px; width: 100%;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            Hours
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="all-time">
+                                    <input type="checkbox" id="all-time" class="mdl-switch__input"
+                                           onchange="allTime();">
+                                    <span class="mdl-switch__label">24 Hours</span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="clock">
+                        <td class="mdl-data-table__cell--non-numeric">Open Time</td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div class="input-group clockpicker1 mdl-textfield mdl-js-textfield"
+                                 data-autoclose="true">
+                                <input type="text" class="form-control" value="07:00">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                                </span>
+                            </div>
+                            <script>
+                                var input = $('.clockpicker1').clockpicker()
+                                    .find('input');
+                                var openTime = input.val();
+                                input.change(function () {
+                                    openTime = this.value;
+                                })
+                            </script>
+                        </td>
+                    </tr>
+                    <tr class="clock">
+                        <td class="mdl-data-table__cell--non-numeric">Close Time</td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <div class="input-group clockpicker2 mdl-textfield mdl-js-textfield"
+                                 data-autoclose="true">
+                                <input type="text" class="form-control" value="18:00">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                                </span>
+                            </div>
+                            <script>
+                                var input = $('.clockpicker2').clockpicker()
+                                    .find('input');
+                                var closeTime = input.val();
+                                input.change(function () {
+                                    closeTime = this.value;
+                                })
+                            </script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <button id="add-data"
+                                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                                Submit
+                            </button>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            Console:
+                        </td>
+                        <td>
+                            <div class="panel panel-danger" id="errors" style='display: none;'>
+                            </div>
+                            <div class="panel panel-primary" id="success" style='display: none;'>
+                            </div>
+                            <div class="col-xs-2"></div>
+                            <div class="row"></div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <!--Insert JS-->
+            <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+            <!--Configure firebase-->
+            <script>
+
+                var config = {
+                    apiKey: "AIzaSyAo6ldqjYdKnFO9bSKLJw8bxyqoz_NVFZE",
+                    authDomain: "easypetsthailand.firebaseapp.com",
+                    databaseURL: "https://easypetsthailand.firebaseio.com",
+                    projectId: "easypetsthailand",
+                    storageBucket: "easypetsthailand.appspot.com",
+                    messagingSenderId: "223124031755"
+                };
+
+                var banner;
+                var latitude;
+                var longitude;
+
+                function getOpenDays() {
+                    var out = "0";
+                    if (document.getElementById('checkbox-0').checked) {
+                        out = "10000000";
+                    } else {
+                        var openDaysCheckBoxes = document.getElementsByName('open-days');
+                        for (var c = 0; c < openDaysCheckBoxes.length; ++c) {
+                            if (openDaysCheckBoxes[c].checked) {
+                                out += "1";
+                            } else out += "0";
+                        }
+                    }
+                    return out;
+                }
+
+                function getRadioValue(radios) {
+                    for (var i = 0; i < radios.length; ++i) {
+                        if (radios[i].checked) return radios[i].value;
+                    }
+                    return null;
+                }
+
+                var BCC = {lat: 13.7212695, lng: 100.52250809999998};
+                var here = BCC;
+
+                function initMap() {
+                    latitude = here.lat;
+                    longitude = here.lng;
+
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                                here = {lat: position.coords.latitude, lng: position.coords.longitude};
+                                latitude = here.lat;
+                                longitude = here.lng;
+                                //console.log("new here at " + latitude + ", " + longitude);
+                                var mapOptions = {
+                                    zoom: 15,
+                                    center: here,
+                                    navigationControlOptions: {
+                                        style: google.maps.NavigationControlStyle.SMALL
+                                    },
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                };
+
+                                var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                                var marker = new google.maps.Marker({
+                                    position: here,
+                                    map: map,
+                                    draggable: true
+                                });
+
+                                google.maps.event.addListener(marker, 'dragend', function (evt) {
+                                    latitude = evt.latLng.lat();
+                                    longitude = evt.latLng.lng();
+                                });
+                            }, function error(msg) {
+                                alert('Please enable your GPS position future.');
+                            }, {maximumAge: 600000, timeout: 10000000, enableHighAccuracy: true}
+                        );
+                    } else {
+                        //console.log("can't find location, going to default location");
+                        var mapOptions = {
+                            zoom: 15,
+                            center: here
+                        };
+
+                        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                        var marker = new google.maps.Marker({
+                            position: here,
+                            map: map,
+                            draggable: true
+                        });
+                        google.maps.event.addListener(marker, 'dragend', function (evt) {
+                            latitude = evt.latLng.lat();
+                            longitude = evt.latLng.lng();
+                        });
+                    }
+                }
+
+                function disableDays() {
+                    var openDays = document.getElementsByName('open-days');
+                    for (var v = 0; v < openDays.length; ++v) {
+                        openDays[v].disabled = true;
+                    }
+                }
+
+                function enableDays() {
+                    var openDays = document.getElementsByName('open-days');
+                    for (var v = 0; v < openDays.length; ++v) {
+                        openDays[v].disabled = false;
+                    }
+                }
+
+                function everyDay() {
+                    if (document.getElementById('checkbox-0').checked) {
+                        disableDays();
+                    } else {
+                        enableDays();
+                    }
+                }
+
+                function allTime() {
+                    if ($('#all-time').is(':checked')) {
+                        $('.clock').hide();
+                    } else {
+                        $('.clock').show();
+                    }
+                }
+
+                firebase.initializeApp(config);
+                var database = firebase.database();
+                var imageBannerPath = 'PetServiceBanner';
+
+                var fileButton = document.getElementById('fileButton_banner');
+                fileButton.addEventListener('change', function (e) {
+                    var file = e.target.files[0];
+                    var storageRef = firebase.storage().ref(imageBannerPath).child(file.name);
+                    storageRef.put(file);
+                    banner = "https://firebasestorage.googleapis.com/v0/b/" + config["storageBucket"] + "/o/" + imageBannerPath + "%2F" + file.name + "?alt=media";
+                });
+                document.getElementById("add-data").onclick = function (e) {
+
+                    var serviceName = $('#service_name').val();
+                    var typeRadios = $('.radio-service-options');
+                    var type = getRadioValue(typeRadios);
+                    var description = $('#description').val();
+                    var telNo = $('#tel_number').val();
+                    var priceRateRadios = $('.price-rate-options');
+                    var priceRate = getRadioValue(priceRateRadios);
+                    var likes = $('#likes').val();
+                    var openDays = getOpenDays();
+
+                    if ($('#all-time').is(":checked")) {
+                        openTime = "nope";
+                        closeTime = "nope";
+                    }
+
+                    var rootRef = firebase.database().ref();
+                    var storesRef = rootRef.child('app/data/');
+                    var newStoreRef = storesRef.push();
+
+                    alert("name : " + serviceName + "\n" +
+                        "type : " + type + "\n" +
+                        "banner : " + banner + "\n" +
+                        "description : " + description + "\n" +
+                        "tel : " + telNo + "\n" +
+                        "priceRate : " + priceRate + "\n" +
+                        "likes : " + likes + "\n" +
+                        "openDays : " + openDays + "\n" +
+                        "latitude : " + latitude + "\n" +
+                        "longitude : " + longitude + "\n" +
+                        "openTime : " + openTime + "\n" +
+                        "closeTime : " + closeTime
+                    );
+
+                    newStoreRef.set({
+                        serviceName: serviceName,
+                        type: type,
+                        banner: banner,
+                        description: description,
+                        tel: telNo,
+                        priceRate: priceRate,
+                        likes: likes,
+                        openDays: openDays,
+                        latitude: latitude,
+                        longitude: longitude,
+                        openTime: openTime,
+                        closeTime: closeTime
+                    });
+                    alert("Success");
+                };
+
+            </script>
+
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRQiFrZC9v0MKbkSaU2ZLMZyqBO02TlKc&callback=initMap">
+            </script>
+
+        </div>
+    </main>
+</div>
+</body>
+</html>
